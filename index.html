@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 – Document editor</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/decoupled-document/ckeditor.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="document-editor">
+      <div class="document-editor__toolbar"></div>
+      <div class="document-editor__editable-container">
+        <div class="document-editor__editable">
+            <p>The initial editor data.</p>
+        </div>
+      </div>
+  </div>
+
+  <script>
+    DecoupledEditor
+        .create( document.querySelector( '.document-editor__editable' ) )
+        .then( editor => {
+            const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
+
+            toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+  </script>
+</body>
+</html>
